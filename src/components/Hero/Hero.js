@@ -4,8 +4,29 @@ import styled from 'styled-components/macro';
 const Hero = () => {
   return (
     <Wrapper>
-      <HeroImage src="/images/hero-img.jpg" />
-      <Swoop src="/swoop.svg" />
+      <picture>
+        <source
+          type="image/avif"
+          srcset="
+            /images/hero-img.avif 1x,
+            /images/hero-img@2x.avif 2x,
+            /images/hero-img@3x.avif 3x
+          "
+        />
+        <source
+          type="image/webp"
+          srcset="
+            /images/hero-img.jpg 1x,
+            /images/hero-img@2x.webp 2x,
+            /images/hero-img@3x.webp 3x
+          "
+        />
+        <HeroImage
+          alt="a beautiful cat with blue eyes that stares at you"
+          src="/images/hero-img.jpg"
+        />
+      </picture>
+      <Swoop src="/swoop.svg" alt="" />
     </Wrapper>
   );
 };
