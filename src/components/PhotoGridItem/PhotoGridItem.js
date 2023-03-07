@@ -53,17 +53,41 @@ object-fit: cover;
 `;
 
 const Tags = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-`;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden; 
+    max-width: 100%;
+    text-overflow: ellipsis;
+
+    & > * {
+    background: var(--color-gray-300);
+    }
+  `;
 
 const Tag = styled.li`
-  padding: 4px 8px;
+  display: inline;
+  padding: 0 8px;
   background: var(--color-gray-300);
   font-size: 0.875rem;
   font-weight: 475;
   color: var(--color-gray-800);
+  line-height: 1.8;
+
+  &:not(:last-of-type)::after{
+    content: "-";
+    right: -0.5rem;
+    position: relative;
+    background: white;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: white;
+  }
+/* 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+
 `;
 
 export default PhotoGridItem;
